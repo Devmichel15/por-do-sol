@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff7f50;
+  --color-primary-dark: #e66a3c;
+  --color-secondary: #d4af37;
+  --color-dark: #0f172a;
+  --color-dark-lighter: #1e293b;
+  --color-dark-darker: #020617;
+  --color-light: #f8fafc;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Montserrat", sans-serif;
+
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+  --animate-fade-in: fade-in 1s ease-out forwards;
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@utility bg-hero-pattern {
+  background-image: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent),
+    url("/images/hero.jpg");
+}
+
+@utility bg-cocktail-pattern {
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.9),
+      rgba(15, 23, 42, 0.9)
+    ),
+    url("/images/cocktail.jpg");
+}
+
+@utility bg-cta-pattern {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/hero.jpg");
+}
+
+/* Custom Utilities if needed (v4 allows inline mostly) */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-light); /* Fallback */
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff7f50;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e66a3c;
+}
